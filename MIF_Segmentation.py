@@ -2,6 +2,7 @@
 Class to handle creation and saving of MIF Segmentations
 """
 import os
+import re
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
@@ -35,7 +36,12 @@ class MIF_Segmentation:
 
         self.core_biopsy_mask = np.full_like(self.mif[0,:,:], False, dtype=bool)
 
-        self.cache_dir = cache_dir
+        split_path = os.path.split(file_path)
+
+        self.cache_dir = os.path.join(cache_dir, (split_path[-1]).split('.')[0])
+
+        if not os.path.exists(self.cache_dir):
+            os.mkdir(self.cache_dir)
 
         self.num_core_biopsy = num_core_biopsy
 
@@ -178,9 +184,11 @@ class MIF_Segmentation:
             if i % 1000 == 0:
                 print(i)
 
-        if not os.path.exists(os.path.join(self.cache_dir, 'tub_seg.npy')):
-            print('Saving...')
-            np.save(os.path.join(self.cache_dir, 'tub_seg.npy'), final_mask)
+        print('Saving...')
+        with open(os.path.join(self.cache_dir, 'tub_seg.npy'), 'wb') as f:
+            np.save(f, final_mask)
+
+
 
 
 
