@@ -40,6 +40,34 @@ on a pixel-by-pixel basis. In addition, for glomeruli, tubules, and nuclei, we f
 
 Below are the current metrics for the masks: 
 
+```
+----------Glomeruli Metrics Pixel----------
+   accuracy  precision    recall
+0  0.916993   0.936065  0.978265
+1  0.733080   0.916966  0.785204
+2  0.873902   0.955599  0.910889
+3  0.739483   0.957208  0.764764
+----------Glom Metrics Element Wise ----------
+   precision    recall        F1  avg_matched_iou  panoptic_quality  num prediction objects  num gt objects
+0       1.00  1.000000  1.000000         0.902726          0.902726                       3               3
+1       0.75  1.000000  0.857143         0.746740          0.640063                       4               3
+2       1.00  1.000000  1.000000         0.851917          0.851917                       3               3
+3       1.00  0.833333  0.909091         0.923930          0.839937                       5               6
+----------Interstism Metrics----------
+   accuracy  precision    recall
+0  0.605967   0.771656  0.738367
+1  0.738806   0.891598  0.811719
+2  0.805250   0.904998  0.879604
+----------Tubule Metrics Pixel----------
+   accuracy  precision    recall
+0  0.868115   0.917475  0.941643
+1  0.757079   0.893586  0.832099
+----------Tub Metrics Element Wise ----------
+   precision    recall        F1  avg_matched_iou  panoptic_quality  num prediction objects  num gt objects
+0   0.590909  0.709091  0.644628         0.770667          0.496794                      66              55
+1   0.741935  0.836364  0.786325         0.806937          0.634514                      62              55
+```
+
 ## Current Metrics 
 
 ### Tubule - Interstitium Ratio
